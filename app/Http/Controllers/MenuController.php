@@ -15,6 +15,7 @@ class MenuController extends Controller
     {
         $products = Product::all();
         $cart = $this->getCartDetails();
+
         return view('home', compact('products', 'cart'));
     }
 }

@@ -1,4 +1,6 @@
-const mix = require('laravel-mix');
+let mix = require("laravel-mix");
+let tailwindcss = require("tailwindcss");
+require("laravel-mix-purgecss");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +13,23 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.styles([
+    "resources/assets/css/pace-theme-flash.min.css",
+    "resources/assets/css/alertify.min.css"
+], "public/css/vendor.css");
+
+mix.scripts([
+        "resources/assets/js/pace.min.js",
+        "resources/assets/js/sticky-sidebar.min.js",
+        "resources/assets/js/alertify.min.js"
+    ], "public/js/vendor.js")
+    .scripts("resources/assets/js/app.js", "public/js/app.js");
+
+mix.postCss("resources/assets/css/main.css", "public/css", [
+        tailwindcss("./tailwind.js")
+    ])
+    .purgeCss();
+
+if (mix.inProduction()) {
+    mix.version();
+}
