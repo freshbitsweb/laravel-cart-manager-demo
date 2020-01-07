@@ -10,4 +10,17 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * Cart details
+     *
+     * @return array
+     */
+    protected function getCartDetails()
+    {
+        return [
+            'items' => cart()->items($displayCurrency = true),
+            'totals' => cart()->totals(),
+        ];
+    }
 }
