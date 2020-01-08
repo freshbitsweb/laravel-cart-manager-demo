@@ -26,7 +26,7 @@ mix.scripts([
     .scripts("resources/assets/js/app.js", "public/js/app.js");
 
 mix.postCss("resources/assets/css/main.css", "public/css", [
-        tailwindcss("./tailwind.js")
+        tailwindcss("./tailwind.config.js")
     ])
     .purgeCss();
 
