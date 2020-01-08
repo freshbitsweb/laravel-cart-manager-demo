@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name') }}</title>
-    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
