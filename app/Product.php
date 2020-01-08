@@ -20,6 +20,7 @@ class Product extends Model implements HasMedia
      * @var array
      */
     protected $dates = ['deleted_at'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,28 +29,14 @@ class Product extends Model implements HasMedia
     protected $fillable = [
         'name', 'description'
     ];
+
     /**
-     * Image path for the cart
+     * Image path for the cart.
      *
      * @return string Image path
      */
     public function getImage()
     {
         return $this->getFirstMediaUrl('products');
-    }
-
-    /**
-     * Defining media collections & certain file Types.
-     *
-     * @param Spatie\MediaLibrary\File $file
-     * @return type
-     **/
-    public function registerMediaCollections()
-    {
-        $this
-            ->addMediaCollection('products')
-            ->acceptsFile(function (File $file) {
-                return $file->mimeType === 'image/jpeg';
-            });
     }
 }

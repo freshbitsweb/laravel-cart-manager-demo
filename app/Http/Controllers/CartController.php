@@ -8,49 +8,57 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     /**
-     * Add to cart
+     * Add to cart.
      *
-     * @return json
+     * @return Illuminate\Http\JsonResponse
      */
     public function addToCart()
     {
         Product::addToCart(request('productId'));
+
         return $this->getCartDetails();
     }
+
     /**
-     * Remove from cart
+     * Remove from cart.
      *
-     * @return json
+     * @return Illuminate\Http\JsonResponse
      */
     public function removeFromCart()
     {
         cart()->removeAt(request('cartItemIndex'));
+
         return $this->getCartDetails();
     }
+
     /**
-     * Increment cart item quantity
+     * Increment cart item quantity.
      *
-     * @return json
+     * @return Illuminate\Http\JsonResponse
      */
     public function incrementCartItem()
     {
         cart()->incrementQuantityAt(request('cartItemIndex'));
+
         return $this->getCartDetails();
     }
+
     /**
-     * Decrement cart item quantity
+     * Decrement cart item quantity.
      *
-     * @return json
+     * @return Illuminate\Http\JsonResponse
      */
     public function decrementCartItem()
     {
         cart()->decrementQuantityAt(request('cartItemIndex'));
+
         return $this->getCartDetails();
     }
+
     /**
-     * Applies the discount to the cart
+     * Applies the discount to the cart.
      *
-     * @return json
+     * @return Illuminate\Http\JsonResponse
      */
     public function applyDiscount()
     {
@@ -59,6 +67,7 @@ class CartController extends Controller
             return $this->getCartDetails();
         }
         cart()->applyFlatDiscount($amount = request('discountInput'));
+
         return $this->getCartDetails();
     }
 }
