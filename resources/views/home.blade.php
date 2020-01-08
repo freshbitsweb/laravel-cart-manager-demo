@@ -6,7 +6,9 @@
             @include('menu.items')
         </div>
 
-        <div id="cart-container" class="hidden md:hidden bg-white lg:block overflow-auto lg:overflow-visible md:w-1/2 lg:w-1/4 fixed lg:static pin-r pin-t pin-b pl-4">
+        <div id="cart-container"
+            class="hidden md:hidden bg-white lg:block overflow-auto lg:overflow-visible md:w-1/2 lg:w-1/4 fixed lg:static pin-r pin-t pin-b pl-4"
+        >
             <div id="cart-details">
                 <div class="sidebar__inner shadow-none lg:shadow-lg rounded">
                     <div class="shadow-none lg:shadow-lg rounded p-4">

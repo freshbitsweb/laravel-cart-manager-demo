@@ -19,8 +19,7 @@
                 </div>
 
                 <div class="px-2 pb-4 text-center">
-                    <button
-                        class="bg-teal rounded-full pr-4 pl-4 pt-2 pb-2 font-semibold text-white add-to-cart"
+                    <button class="bg-teal rounded-full pr-4 pl-4 pt-2 pb-2 font-semibold text-white add-to-cart"
                         data-product-id="{{ $product->id }}"
                     >
                         Add To cart
