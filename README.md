@@ -28,8 +28,6 @@ composer install
 composer run-script post-create-project-cmd
 php artisan storage:link
 php artisan migrate --seed
-npm install
-npm run watch-poll
 ```
 
 Done.
