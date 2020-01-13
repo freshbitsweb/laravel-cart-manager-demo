@@ -80,6 +80,11 @@
             cartTotal.getElementsByClassName('cart-total-label')[0].innerHTML = key;
             cartTotal.getElementsByClassName('cart-total-value')[0].innerHTML = totals[key];
 
+            if (key == 'Discount') {
+                cartTotal.getElementsByClassName('cart-total-label')[0].innerHTML = 'Discount';
+                cartTotal.getElementsByClassName('cart-total-value')[0].innerHTML = '-'+totals[key];
+            }
+
             document.getElementById('cart-totals').appendChild(cartTotal);
         }
 
