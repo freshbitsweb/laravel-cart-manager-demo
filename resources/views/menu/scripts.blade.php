@@ -63,21 +63,45 @@
 
     function updateCartTotals(totals) {
         var cartTotalTemplate = document.getElementById('cart-total-template')
-            .getElementsByTagName('li')[0]
-        ;
+            .getElementsByTagName('li')[0];
+
         if (totals.hasOwnProperty("Discount") != true) {
             document.getElementById('discount-input').value = '';
         }
+
         for (var key in totals) {
-            if (key != 'items') {
-                cartTotal = cartTotalTemplate.cloneNode(true);
-                cartTotal.getElementsByClassName('cart-total-label')[0].innerHTML = key;
-                cartTotal.getElementsByClassName('cart-total-value')[0].innerHTML = totals[key];
-                document.getElementById('cart-totals').appendChild(cartTotal);
-            }
+
+            cartTotal = cartTotalTemplate.cloneNode(true);
+            cartTotal.getElementsByClassName('flex')[0].classList.remove("border-t");
+            cartTotal.getElementsByClassName('flex')[0].classList.remove("border-teal");
+
+            separateBillWithLine(key, cartTotal);
+
+            cartTotal.getElementsByClassName('cart-total-label')[0].innerHTML = key;
+            cartTotal.getElementsByClassName('cart-total-value')[0].innerHTML = totals[key];
+
+            document.getElementById('cart-totals').appendChild(cartTotal);
         }
+
         if (window.innerWidth > 769) {
             stickySidebar.updateSticky();
+        }
+    }
+
+    function separateBillWithLine(key, cartTotal) {
+        if (key == 'Net total') {
+            cartTotal.children[0].classList.add("border-t");
+            cartTotal.children[0].classList.add("border-teal");
+        }
+
+        if (key == 'Total') {
+            cartTotal.children[0].classList.add("border-t");
+            cartTotal.children[0].classList.add("border-teal");
+        }
+
+        if (key == 'Payable') {
+            cartTotal.children[0].classList.add("border-t");
+            cartTotal.children[0].classList.add("border-teal");
         }
     }
 </script>
