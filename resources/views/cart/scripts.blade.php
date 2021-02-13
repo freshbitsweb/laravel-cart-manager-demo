@@ -28,6 +28,20 @@
             showNotice('error', 'Something went wrong!');
         });
     });
+    delegate(document.querySelector('#cart-items'), "change", ".cart-item-quantity", function(event) {
+        event.preventDefault();
+        axios.post('cart-item-quantity-set', {
+            cartItemIndex: this.dataset.itemIndex,
+            cartQuantity: this.value
+        })
+        .then(function (response) {
+            updateCartDetails(response.data);
+            showNotice('success', 'Cart item updated successfully');
+        })
+        .catch(function (error) {
+            showNotice('error', 'Something went wrong!');
+        });
+    });
     delegate(document.querySelector('#cart-items'), "click", ".increase-item-quantity", function(event) {
         event.preventDefault();
         axios.post('increment-cart-item', {
