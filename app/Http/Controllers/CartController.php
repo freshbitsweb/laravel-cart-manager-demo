@@ -36,6 +36,18 @@ class CartController extends Controller
      *
      * @return Illuminate\Http\JsonResponse
      */
+    public function cartItemQuantitySet()
+    {
+        cart()->setQuantityAt(request('cartItemIndex'), request('cartQuantity'));
+
+        return $this->getCartDetails();
+    }
+
+    /**
+     * Increment cart item quantity.
+     *
+     * @return Illuminate\Http\JsonResponse
+     */
     public function incrementCartItem()
     {
         cart()->incrementQuantityAt(request('cartItemIndex'));

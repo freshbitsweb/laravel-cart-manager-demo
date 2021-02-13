@@ -53,6 +53,7 @@
             cartItem.getElementsByClassName('cart-item-image')[0].setAttribute("src", item.image);
             cartItem.getElementsByClassName('cart-item-name')[0].innerHTML = item.name;
             cartItem.getElementsByClassName('cart-item-quantity')[0].value = item.quantity;
+            cartItem.getElementsByClassName('cart-item-quantity')[0].dataset.itemIndex = index;
             cartItem.getElementsByClassName('cart-item-price')[0].innerHTML = item.price;
             cartItem.getElementsByClassName('increase-item-quantity')[0].dataset.itemIndex = index;
             cartItem.getElementsByClassName('decrease-item-quantity')[0].dataset.itemIndex = index;
