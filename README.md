@@ -1,10 +1,6 @@
 # Demo of Laravel Cart Manager
 
-Online Demo - https://laravel-cart-manager.freshbits.in
-
 This repo contains the code for the demo of [Laravel Cart Manager](https://github.com/freshbitsweb/laravel-cart-manager) package.
-
-The documentation of the package can be found at - https://docs.freshbits.in/laravel-cart-manager
 
 # Installation
 
